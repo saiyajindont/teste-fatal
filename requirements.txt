@@ -1,6 +1,7 @@
 streamlit
 numpy
 folium
+scipy
 osmnx
 networkx
 ortools
