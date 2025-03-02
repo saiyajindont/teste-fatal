@@ -1,8 +1,12 @@
 streamlit
 numpy
 folium
-scipy
 osmnx
 networkx
 ortools
 streamlit-folium
+scipy
+shapely
+geopandas
+pyproj
+rtree
