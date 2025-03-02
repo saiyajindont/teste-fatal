@@ -20,6 +20,19 @@ clientes_base = np.array([
     [-16.7000802, -49.3018883],
     [-16.7093551, -49.2972252],
     [-16.686924, -49.2659508],
+    [-16.7038435, -49.2712615],
+    [-16.6747424, -49.2662128],
+    [-16.6991046, -49.2528195],
+    [-16.7105064, -49.3001836],
+    [-16.6734876, -49.2690427],
+    [-16.6387811, -49.2451553],
+    [-16.6666242, -49.2618588],
+    [-16.7117602, -49.3046789],
+    [-16.6388496, -49.2452160],
+    [-16.7333320, -49.2352096],
+    [-16.6708294, -49.3018824],
+    [-16.6799366, -49.2654854],
+    [-16.672835, -49.2540433],
 ])
 
 num_clientes = st.sidebar.slider("Clientes por rota", 5, 7, 6)
@@ -45,8 +58,11 @@ else:
     # 🛠️ Salvar o grafo localmente para evitar downloads futuros
     ox.save_graphml(grafo, grafo_path)
 
+if "crs" in grafo.graph and grafo.graph["crs"] is not None:
+    grafo = ox.project_graph(grafo)
+
 # 📍 Encontrar nós mais próximos
-nodos_clientes = [ox.nearest_nodes(grafo, lon, lat) for lat, lon in clientes]
+nodos_clientes = [ox.nearest_nodes(grafo, lon, lat, method="balltree") for lat, lon in clientes]
 
 # 🔥 **Calcular matriz de distâncias com cache**
 @st.cache_data
@@ -146,6 +162,6 @@ for i in range(len(rota) - 1):
 st_folium(mapa, width=1000, height=700)
 st.markdown("""Sobre o Otimizador de Rotas:
 Esse software utiliza o OpenStreetMap e algoritmos de otimização para encontrar a melhor rota entre diferentes pontos. Ele considera a menor distância possível e os custos associados ao trajeto. 
-            Além disso, utiliza máquina de aprendizado para retornar os melhores resultados possíveis.
+            Além disso, utiliza aprendizado de máquina para retornar os melhores resultados possíveis.
             Desenvolvido por Wagner Tiburcio.     
 """)
