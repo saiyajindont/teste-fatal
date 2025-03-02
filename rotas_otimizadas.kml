@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="25">
+        <Style id="28">
+            <LineStyle id="29">
+                <color>ffff0000</color>
+                <colorMode>normal</colorMode>
+            </LineStyle>
+        </Style>
+        <Placemark id="27">
+            <name>Rota Cluster 0</name>
+            <styleUrl>#28</styleUrl>
+            <LineString id="26">
+                <coordinates>-49.3142917,-16.6877409,0.0 -49.3018883,-16.7000802,0.0 -49.2972252,-16.7093551,0.0 -49.2652208,-16.8092055,0.0 -48.959735,-16.3295005,0.0 -49.2659508,-16.686924,0.0</coordinates>
+            </LineString>
+        </Placemark>
+    </Document>
+</kml>
