@@ -10,3 +10,5 @@ shapely
 geopandas
 pyproj
 rtree
+requests
+matplotlib
